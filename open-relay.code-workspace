@@ -1,0 +1,60 @@
+{
+	"folders": [
+		{
+			"name": "Open-Relay (Root)",
+			"path": "."
+		},
+		{
+			"name": "Control Plane (Go / PocketBase)",
+			"path": "control-plane"
+		},
+		{
+			"name": "Relay Server (Rust / Axum)",
+			"path": "relay-server"
+		},
+		{
+			"name": "Relay Client (Obsidian Plugin)",
+			"path": "Relay"
+		},
+		{
+			"name": "Specifications & Architecture",
+			"path": "spec"
+		}
+	],
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+			"relay-server/crates/Cargo.toml"
+		],
+		"rust-analyzer.cargo.buildScripts.enable": true,
+		"go.useLanguageServer": true,
+		"go.inferGopath": false,
+		"typescript.tsdk": "Relay/node_modules/typescript/lib",
+		"files.eol": "\n",
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true
+		},
+		"search.exclude": {
+			"**/node_modules": true,
+			"**/bower_components": true,
+			"**/*.code-search": true,
+			"**/target": true,
+			"**/pb_data": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"golang.go",
+			"rust-lang.rust-analyzer",
+			"svelte.svelte-vscode",
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"tamasfe.even-better-toml",
+			"ms-azuretools.vscode-docker"
+		]
+	}
+}

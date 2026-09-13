@@ -1,0 +1,13 @@
+# Open-Relay Server Configuration
+[server]
+host = "0.0.0.0"
+port = 8080
+url = "http://localhost:8085"
+
+[store]
+type = "filesystem"
+path = "/app/data"
+
+[[auth]]
+key_id = "openrelay_2026"
+public_key = "81FHxI1ylxCqcGaQg440T9yiF3XFSjCUGR4bq3DWQCI="

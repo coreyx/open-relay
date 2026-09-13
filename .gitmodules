@@ -1,0 +1,6 @@
+[submodule "relay-server"]
+	path = relay-server
+	url = git@github.com:coreyx/relay-server.git
+[submodule "Relay"]
+	path = Relay
+	url = git@github.com:coreyx/Relay.git

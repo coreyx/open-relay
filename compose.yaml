@@ -1,0 +1,39 @@
+services:
+  open-relay-control:
+    build:
+      context: ./control-plane
+      dockerfile: Dockerfile
+    image: open-relay-control:latest
+    container_name: open-relay-control
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/app/pb_data
+    environment:
+      - ED25519_KEY_ID=openrelay_2026
+      - ED25519_PRIVATE_KEY=s8n8+b2x/hcR3WmIKXZ8sVwBmks8ervH9JRt+vF7xKk=
+      - RELAY_SERVER_URL=http://relay-server:8080
+    restart: unless-stopped
+
+  relay-server:
+    build:
+      context: ./relay-server/crates
+      dockerfile: Dockerfile
+      args:
+        - RELAY_VERSION=0.12.7-openrelay
+    image: relay-server:latest
+    container_name: relay-server
+    ports:
+      - "8085:8080"
+    volumes:
+      - relay_data:/app/data
+      - ./relay.toml:/app/relay.toml:ro
+    environment:
+      - RELAY_SERVER_URL=http://localhost:8085
+    depends_on:
+      - open-relay-control
+    restart: unless-stopped
+
+volumes:
+  pb_data:
+  relay_data:
